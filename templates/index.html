@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>UBER</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>international_matches</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+        <input type="test" name="home_team_fifa_rank" placeholder="home_team_fifa_rank" required="required" />
+	    <input type="text" name="away_team_fifa_rank" placeholder="away_team_fifa_rank" required="required" />
+        <input type="text" name="home_team_total_fifa_points" placeholder="home_team_total_fifa_points" required="required" />
+        <input type="text" name="away_team_total_fifa_points" placeholder="away_team_total_fifa_points" required="required" />
+        <input type="text" name="home_team_score" placeholder="home_team_score" required="required" />
+        <input type="text" name="away_team_score" placeholder="away_team_score" required="required" />
+        <input type="text" name="home_team_result" placeholder="home_team_result" required="required" />
+        
+        
+        <button type="submit" class="btn btn-secondary">predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
